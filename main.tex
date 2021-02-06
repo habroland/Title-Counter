@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[margin=1in]{geometry}
+
+\author{RH}
+
+\newcounter{stepnum}
+\newenvironment{step}[1][]{\refstepcounter{stepnum}\par\medskip
+   \noindent\textbf{Step~\thestepnum #1:} \rmfamily}{\medskip}
+   
+\makeatletter
+\AtEndDocument{
+  \immediate\write\@auxout{% \immediate seems to be unnecessary
+    \global\noexpand\@namedef{steptotal}{\number\c@stepnum}% Also can use \thestepnum instead of \number\c@stepnum
+  }%
+}
+\title{How to make your own quantum computer in \@nameuse{steptotal} hard steps}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+This \LaTeX \, preamble introduces an environment called ``step'', whose number of instances will be reflected in the title.
+
+\section{Proceduce}
+
+Steps to make your very own quantum computer
+
+\begin{step} \label{step:1}
+Purchase the qubits % This text is inside the environment
+
+Step number \ref{step:1} is to get qubits from your local store. % Test reference to label
+\end{step}
+ 
+Remember that everything is quantum! % This text is outside the environment
+ 
+\begin{step}
+Assemble the qubits
+
+Step \thestepnum \, tells you to put everything together, or else go to your nearest quantum mechanic and let them assemble the qubits. % Test counter
+\end{step}
+ 
+\begin{step}[ of \steptotal] % Test argument of environment and test steptotal
+?????
+\end{step}
+
+\begin{step}
+Profit!
+\end{step}
+
+\section{Conclusion}
+
+Enjoy your quantum gaming, and your new step environment.
+
+\section{Epilogue}
+
+Originally, I intended to name this file ``How to make your own quantum computer in \steptotal \, easy steps'', but my wife pointed out that these steps are not easy. Hence, I fixed the title.
+
+\end{document}
