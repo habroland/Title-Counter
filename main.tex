@@ -7,7 +7,7 @@
 
 \newcounter{stepnum}
 \newenvironment{step}[1][]{\refstepcounter{stepnum}\par\medskip
-   \noindent\textbf{Step~\thestepnum #1:} \rmfamily}{\medskip}
+   \noindent\textbf{Step~\thestepnum #1:} \rmfamily}{\medskip} % Alternatively you can use {Step~\thestepnum~of \steptotal #1:}
    
 \makeatletter
 \AtEndDocument{
